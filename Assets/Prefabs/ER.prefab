@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9149221313575098462}
   - component: {fileID: 6784437743382134405}
   - component: {fileID: 2687522817357468252}
-  - component: {fileID: 128478909836806921}
+  - component: {fileID: 6449427274976873219}
   m_Layer: 0
   m_Name: B_Door
   m_TagString: SpawnPoint
@@ -74,7 +74,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &128478909836806921
+--- !u!50 &6449427274976873219
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 7199989070915720906}
   - component: {fileID: 4599360907054612571}
   - component: {fileID: 6549130909199184972}
-  - component: {fileID: 7503133120853930838}
+  - component: {fileID: 997461308051148566}
   m_Layer: 0
   m_Name: R_Door
   m_TagString: SpawnPoint
@@ -169,7 +169,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &7503133120853930838
+--- !u!50 &997461308051148566
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 1829062369854790547}
   - component: {fileID: 7405463637486863122}
   - component: {fileID: 5549595100472800103}
-  - component: {fileID: 1119747308653499470}
+  - component: {fileID: 2881127946765636441}
   m_Layer: 0
   m_Name: L_Door
   m_TagString: SpawnPoint
@@ -424,7 +424,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &1119747308653499470
+--- !u!50 &2881127946765636441
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -457,6 +457,7 @@ GameObject:
   - component: {fileID: 76522345906287782}
   - component: {fileID: 7428961955101130246}
   - component: {fileID: 117370554534757746}
+  - component: {fileID: 7059434884137206008}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Wall
@@ -1048,6 +1049,27 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!50 &7059434884137206008
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5172052029224170584}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6054382620734860986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,7 +1081,7 @@ GameObject:
   - component: {fileID: 6303705705200237759}
   - component: {fileID: 4615597648522597854}
   - component: {fileID: 6318814876873251627}
-  - component: {fileID: 5077204544624695319}
+  - component: {fileID: 946252121155966971}
   m_Layer: 0
   m_Name: T_Door
   m_TagString: SpawnPoint
@@ -1122,7 +1144,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &5077204544624695319
+--- !u!50 &946252121155966971
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

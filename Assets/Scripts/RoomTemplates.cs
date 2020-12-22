@@ -25,7 +25,6 @@ public class RoomTemplates : MonoBehaviour
             spawnedBoss= true;
 
         }
-
         else
         {
             waitTime -= Time.deltaTime;
