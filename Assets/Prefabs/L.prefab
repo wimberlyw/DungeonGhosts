@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &198887306278170725
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7953531466339446407}
-  m_Layer: 0
-  m_Name: SpawnPoints
-  m_TagString: SpawnPoint
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7953531466339446407
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 198887306278170725}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1138162595769630321}
-  m_Father: {fileID: 7579203949144986132}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1286066302508621985
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,7 +14,7 @@ GameObject:
   - component: {fileID: 3938840074313797340}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -316,8 +285,8 @@ Tilemap:
   - first: {x: -5, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 9
-      m_TileSpriteIndex: 9
+      m_TileIndex: 5
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -406,8 +375,8 @@ Tilemap:
   - first: {x: 4, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 9
-      m_TileSpriteIndex: 9
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -423,17 +392,17 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 3f0403556fe2ac04fa696d685d5b92e6, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 1160d3881998f3742a3bddb4fd06eeab, type: 2}
   - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: edc68ef2a2f01d7469088e9828ce8201, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: 8735f8ee99a6ca24bb1877ac42e3b285, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 6ac19946c3b971246899983da5331cac, type: 2}
-  - m_RefCount: 19
+  - m_RefCount: 17
     m_Data: {fileID: 11400000, guid: a2a34f15d3e82e242b8ea719f3163dc4, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
@@ -444,17 +413,17 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -4578894070893331512, guid: 357da9933aadc094eaa4a26c72f2d17a, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 2598454094533549832, guid: 357da9933aadc094eaa4a26c72f2d17a, type: 3}
   - m_RefCount: 8
     m_Data: {fileID: 4341594522678544543, guid: 357da9933aadc094eaa4a26c72f2d17a, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 9174712218916535517, guid: 357da9933aadc094eaa4a26c72f2d17a, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -4578277232388540663, guid: 357da9933aadc094eaa4a26c72f2d17a, type: 3}
-  - m_RefCount: 19
+  - m_RefCount: 17
     m_Data: {fileID: -2119219216328049044, guid: 357da9933aadc094eaa4a26c72f2d17a, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 34
@@ -596,7 +565,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2537951863761682063}
-  - {fileID: 7953531466339446407}
+  - {fileID: 1138162595769630321}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -651,11 +620,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4030300948238981019}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7953531466339446407}
-  m_RootOrder: 0
+  m_Father: {fileID: 7579203949144986132}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &205929030729600019
 MonoBehaviour:

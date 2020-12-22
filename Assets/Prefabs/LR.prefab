@@ -1,37 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1328531209334259431
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8548773941899714862}
-  m_Layer: 0
-  m_Name: SpawnPoints
-  m_TagString: SpawnPoint
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8548773941899714862
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328531209334259431}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6286784745988762546}
-  - {fileID: 3844296907333422717}
-  m_Father: {fileID: 8476893154952671215}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1624616063516071194
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,7 +14,7 @@ GameObject:
   - component: {fileID: 761272789114342078}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -554,7 +522,6 @@ GameObject:
   - component: {fileID: 6286784745988762546}
   - component: {fileID: 2981956592177737070}
   - component: {fileID: 1898578393987870399}
-  - component: {fileID: 5113282342169942687}
   m_Layer: 0
   m_Name: L_Door
   m_TagString: SpawnPoint
@@ -573,8 +540,8 @@ Transform:
   m_LocalPosition: {x: -5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8548773941899714862}
-  m_RootOrder: 0
+  m_Father: {fileID: 8476893154952671215}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2981956592177737070
 MonoBehaviour:
@@ -588,7 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89dc66716abd9154bb7968c04be95b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openingDirection: 3
+  openingDirection: 4
   rand: 0
   offset: {x: -3, y: 0, z: 0}
 --- !u!61 &1898578393987870399
@@ -617,27 +584,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &5113282342169942687
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3868030312075543815}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &4291222062025994082
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +595,6 @@ GameObject:
   - component: {fileID: 3844296907333422717}
   - component: {fileID: 305470698089008097}
   - component: {fileID: 4052694998394269693}
-  - component: {fileID: 8063073531737323894}
   m_Layer: 0
   m_Name: R_Door
   m_TagString: SpawnPoint
@@ -668,8 +613,8 @@ Transform:
   m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8548773941899714862}
-  m_RootOrder: 1
+  m_Father: {fileID: 8476893154952671215}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &305470698089008097
 MonoBehaviour:
@@ -683,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89dc66716abd9154bb7968c04be95b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openingDirection: 4
+  openingDirection: 3
   rand: 0
   offset: {x: -3, y: 0, z: 0}
 --- !u!61 &4052694998394269693
@@ -712,27 +657,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &8063073531737323894
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4291222062025994082}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &4954570664942305634
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +687,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1123301317331418829}
-  - {fileID: 8548773941899714862}
+  - {fileID: 6286784745988762546}
+  - {fileID: 3844296907333422717}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
