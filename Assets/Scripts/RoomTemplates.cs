@@ -21,7 +21,7 @@ public class RoomTemplates : MonoBehaviour
     {
         if(waitTime<=0 && spawnedBoss ==false)
         {
-            Instantiate(boss, rooms[rooms.Count - 1].transform.position + spacing, Quaternion.identity);
+            Instantiate(boss, rooms[rooms.Count - 1].transform.position , Quaternion.identity);
             spawnedBoss= true;
 
         }
