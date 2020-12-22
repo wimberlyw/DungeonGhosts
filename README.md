@@ -13,4 +13,7 @@ Multiplayer Haunted House Roguelike
  * Would like to add tunnels
  * Would like to make the "Full" rooms that sometimes spawn into secret rooms. 
  * Would like to make destructable walls in certain situations. 
-    
+# Items for simps
+ * Enemies and combat
+ * Treasure Chests - random treasures
+ * Make a pretty Lobby
