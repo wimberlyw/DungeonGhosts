@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6241536894515617538}
   - component: {fileID: 6241536894515617541}
-  - component: {fileID: 6241536894515617540}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -75,14 +74,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &6241536894515617540
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6241536894515617543}
-  m_Enabled: 1
 --- !u!1 &6241536896460864840
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,6 +91,8 @@ GameObject:
   - component: {fileID: -3954587291543484479}
   - component: {fileID: -8845960752020594106}
   - component: {fileID: 3863311883853359991}
+  - component: {fileID: 1152615863225042971}
+  - component: {fileID: 553825214391489477}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -308,3 +301,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6212972, y: 0.4422953}
   m_EdgeRadius: 0
+--- !u!114 &1152615863225042971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241536896460864840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5080ce2cddee7e447a8ca4f32f0932a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  matchID: 
+--- !u!114 &553825214391489477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241536896460864840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1020a74962faada4b807ac5dc053a4cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0
+  currentMatchDebug: 
