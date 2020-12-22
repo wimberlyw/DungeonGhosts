@@ -11,10 +11,13 @@ public class RoomSpawner : MonoBehaviour
     // 4 > need right door
 
 
-    private RoomTemplates templates;
+    
     public int rand;
+    public Vector3 offset = new Vector3(0, 0, 0);
+
     private bool spawned = false;
-    public Vector3 offset = new Vector3(-3, 0, 0);
+    private RoomTemplates templates;
+
 
     void Start()
     {
@@ -31,21 +34,22 @@ public class RoomSpawner : MonoBehaviour
 
                 //need to spawn room with BOTTOM door
                 rand = Random.Range(0, templates.bottomRooms.Length);
-                Instantiate(templates.bottomRooms[rand], transform.position + offset, templates.bottomRooms[rand].transform.rotation);
+                Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
+                
 
             }
             else if (openingDirection == 2)
             {
                 //spawn room with a TOP door
                 rand = Random.Range(0, templates.topRooms.Length);
-                Instantiate(templates.topRooms[rand], transform.position + offset, templates.topRooms[rand].transform.rotation);
+                Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
 
             }
             else if (openingDirection == 3)
             {
                 //spawn room with a LEFT door
                 rand = Random.Range(0, templates.leftRooms.Length);
-                Instantiate(templates.leftRooms[rand], transform.position + offset, templates.leftRooms[rand].transform.rotation);
+                Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
 
 
             }
@@ -53,15 +57,12 @@ public class RoomSpawner : MonoBehaviour
             {
                 //spawn room with a RIGHT door
                 rand = Random.Range(0, templates.rightRooms.Length);
-                Instantiate(templates.rightRooms[rand], transform.position + offset, templates.rightRooms[rand].transform.rotation);
+                Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
 
 
             }
-           
-
-            
-        
-    }
+  
+        }
         spawned = true;
 
 

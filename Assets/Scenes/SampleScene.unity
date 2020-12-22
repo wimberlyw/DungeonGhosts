@@ -173,6 +173,7 @@ MonoBehaviour:
   - {fileID: 6045312801326526466, guid: 474e6f22974509d4280834bf07523ccf, type: 3}
   - {fileID: 1365681896654766233, guid: a092809262d59a943a9767ba0c2a4b92, type: 3}
   - {fileID: 5601088572853055876, guid: acad634df5014084d9e2535e55b6c340, type: 3}
+  - {fileID: 4774980403771194770, guid: c1cae634ab1c07944bffdd5a9fc3912a, type: 3}
   topRooms:
   - {fileID: 2708716651678053216, guid: 59bb0d611bae2f94fab2a455f760c2b4, type: 3}
   - {fileID: 5601088572853055876, guid: acad634df5014084d9e2535e55b6c340, type: 3}
@@ -182,6 +183,7 @@ MonoBehaviour:
   - {fileID: 2970182769295569716, guid: ca2559ff6eec07d478279348ec8bf256, type: 3}
   - {fileID: 4954570664942305634, guid: 925d1064feba8134e8614e5c29532827, type: 3}
   - {fileID: 6631638729534181019, guid: 6be19edcfd450a24490d68fd11e301fe, type: 3}
+  - {fileID: 4774980403771194770, guid: c1cae634ab1c07944bffdd5a9fc3912a, type: 3}
   rightRooms:
   - {fileID: 4954570664942305634, guid: 925d1064feba8134e8614e5c29532827, type: 3}
   - {fileID: 7062998262326936030, guid: 65736ae41fd65dc459593d5b4148ac77, type: 3}
@@ -242,7 +244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369545371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: -0.1, z: -2.2159817}
+  m_LocalPosition: {x: -2.4, y: 1.48, z: -2.2159817}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
