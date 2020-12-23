@@ -44,20 +44,55 @@ public class MatchMaker : NetworkBehaviour
     {
         instance = this;
     }
-    public bool HostGame(string _matchID, GameObject _player)
+    public bool HostGame(string _matchID, GameObject _player, out int playerIndex)
     {
+        playerIndex = -1;
         if (!matchIDs.Contains(_matchID)) {
             matchIDs.Add(_matchID);
             matches.Add(new Match(_matchID, _player));
-            Debug.Log("Match Generated");
+            Debug.Log($"Match Generated");
+            playerIndex = 1;
             return true;
         }
         else
         {
-            Debug.Log("Match Id Already Exists");
+            Debug.Log($"Match Id Already Exists");
             return false;
         }
     }
+
+    public bool JoinGame(string _matchID, GameObject _player, out int playerIndex)
+    {
+        playerIndex = -1;
+        if (matchIDs.Contains(_matchID))
+        {
+            for(int i = 0; i< matches.Count; i++)
+            {
+                if (matches[i].matchID == _matchID)
+                {
+                    matches[i].players.Add(_player);
+                    playerIndex = matches[i].players.Count ;
+                    break;
+                }
+                    
+                }
+            
+            Debug.Log($"Match Joined");
+            return true;
+        }
+        else
+        {
+            Debug.Log($"Match Id Does NOT Exists");
+            return false;
+        }
+    }
+
+    public void BeginGame()
+    {
+        //Turn Manager 
+    }
+
+
     public static string GetRandomMatchId()
     {
         string _id = string.Empty;
@@ -76,7 +111,7 @@ public class MatchMaker : NetworkBehaviour
                 _id += (random - 26).ToString();
             }
         }
-        Debug.Log("Random Match ID: (_id)");
+        Debug.Log($"Random Match ID: {_id}");
         return _id;
     }
     }
