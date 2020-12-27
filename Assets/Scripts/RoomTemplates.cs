@@ -8,6 +8,7 @@ public class RoomTemplates : MonoBehaviour
     public GameObject[] topRooms;
     public GameObject[] leftRooms;
     public GameObject[] rightRooms;
+    public GameObject[] startingRooms;
     public GameObject closedroom;
     private Vector3 spacing = new Vector3(3, 0, 0);
 

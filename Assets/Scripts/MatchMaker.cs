@@ -39,7 +39,7 @@ public class MatchMaker : NetworkBehaviour
     public static MatchMaker instance;
 
     public SyncListMatch matches = new SyncListMatch();
-    public SyncListString matchIDs = new SyncListString();
+    public SyncList<string> matchIDs = new SyncList<string>();
     private void Start()
     {
         instance = this;

@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class RoomSpawner : MonoBehaviour
 {
+   [Tooltip(
+        "1 - Attaches to BOTTOM door\n" +
+        "2 - Attaches to TOP door\n" +
+        "3 - Attaches to LEFT door\n" +
+        "4 - Attaches to RIGHT door")]
     public int openingDirection;
-    // 1 > Need bottom door
-    // 2 > Need top door
-    // 3 > Need left door
-    // 4 > need right door
 
-
-    
     public int rand;
     public Vector3 offset = new Vector3(0, 0, 0);
+    public bool debugLinesEnabled = false;
 
     private bool spawned = false;
     private RoomTemplates templates;
     private GameObject spawnedRoom;
     private RoomSpawnManager roomManager;
     private Transform spawnedDoor;
-
-
+    
 
     void Start()
     {
@@ -29,6 +28,7 @@ public class RoomSpawner : MonoBehaviour
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         //Invoke("Spawn", 0.1f);
 
+        
         roomManager = GameObject.Find("RoomOverlord").GetComponent<RoomSpawnManager>();
         roomManager.spawnerQueue.Enqueue(this);
         
@@ -36,19 +36,27 @@ public class RoomSpawner : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Wall") || other.CompareTag("SpawnPoint"))
+
+        if (other.transform.root != transform.root)
         {
-            Destroy(gameObject);
+            Debug.Log(">>>>> I HIT " + other.transform.root.name);
+            if (other.CompareTag("Wall") || other.CompareTag("SpawnPoint"))
+            {
+                Destroy(gameObject);
+            }
+
+            spawned = true;
+            roomManager.readyToSpawn = true;
+
+
+            //if(other.GetComponent<RoomSpawner>().spawned ==false && spawned == false)
+            // {
+            //spawn blocked opening
+            //Instantiate(templates.closedroom, transform.position+offset, Quaternion.identity);
+            //Destroy(gameObject);
+            //}
         }
 
-        //if(other.GetComponent<RoomSpawner>().spawned ==false && spawned == false)
-        // {
-        //spawn blocked opening
-        //Instantiate(templates.closedroom, transform.position+offset, Quaternion.identity);
-        //Destroy(gameObject);
-        //}
-        spawned = true;
-        roomManager.readyToSpawn = true;
     }
 
     public void Spawn()
@@ -100,15 +108,17 @@ public class RoomSpawner : MonoBehaviour
             }
 
             // THIS IS FOR DEBUG ONLY -- REMOVE ME!
-            if (gameObject.transform.root.GetComponent<LineRenderer>() == null)
+            if (debugLinesEnabled)
             {
-                LineRenderer lr = gameObject.transform.root.gameObject.AddComponent<LineRenderer>();
-            
-                lr.widthMultiplier = 0.5f;
-                lr.SetPosition(0, gameObject.transform.root.position);
-                lr.SetPosition(1, spawnedRoom.transform.position);
-            }
+                if (gameObject.transform.root.GetComponent<LineRenderer>() == null)
+                {
+                    LineRenderer lr = gameObject.transform.root.gameObject.AddComponent<LineRenderer>();
 
+                    lr.widthMultiplier = 0.5f;
+                    lr.SetPosition(0, gameObject.transform.root.position);
+                    lr.SetPosition(1, spawnedRoom.transform.position);
+                }
+            }
 
 
         }
