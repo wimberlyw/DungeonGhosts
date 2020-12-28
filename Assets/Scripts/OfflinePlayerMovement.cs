@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class OfflinePlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 3.0f;
+    public float moveSpeed = 2.0f;
     public Rigidbody2D rb;
     Vector2 movement;
     public Animator animator;
     //public Camera theCamera;
-    Vector3 ScaleToFlip = new Vector3(0, 0, 0);
+    //Vector3 ScaleToFlip = new Vector3(0, 0, 0);
     public bool facingLeft = false;
 
     void Start()
     {
-        facingLeft = false;
+        //facingLeft = false;
     }
     // Update is called once per frame
     void Update()
