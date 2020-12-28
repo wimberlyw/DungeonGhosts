@@ -12,7 +12,7 @@ public class PlayerMovement : NetworkBehaviour
     public Camera theCamera;
     public NetworkAnimator netanim;
 
-     void Start()
+    void Start()
     {
         theCamera = GetComponentInChildren<Camera>();
     }
@@ -24,7 +24,7 @@ public class PlayerMovement : NetworkBehaviour
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
-            
+
             animator.SetFloat("Horiontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
             animator.SetFloat("Speed", movement.sqrMagnitude);
@@ -39,7 +39,9 @@ public class PlayerMovement : NetworkBehaviour
     {
         //moves
 
-        if (isLocalPlayer){ 
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime); }
+        if (isLocalPlayer)
+        {
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
     }
 }
