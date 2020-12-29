@@ -39,7 +39,6 @@ public class RoomSpawner : MonoBehaviour
 
         if (other.transform.root != transform.root)
         {
-            Debug.Log(">>>>> I HIT " + other.transform.root.name);
             if (other.CompareTag("Wall") || other.CompareTag("SpawnPoint"))
             {
                 Destroy(gameObject);
