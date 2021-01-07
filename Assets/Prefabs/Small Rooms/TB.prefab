@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4229100875152385672}
   - component: {fileID: 4894669702941212161}
-  - component: {fileID: -2099050267834041604}
+  - component: {fileID: 4012495572078338894}
+  - component: {fileID: 3057946399119546267}
   m_Layer: 0
   m_Name: TB
   m_TagString: Untagged
@@ -47,7 +48,33 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &-2099050267834041604
+--- !u!61 &4012495572078338894
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5601088572853055876}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10}
+  m_EdgeRadius: 0
+--- !u!114 &3057946399119546267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,9 +83,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5601088572853055876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dd4be621faec304ea281cfc3dcea0db, type: 3}
+  m_Script: {fileID: 11500000, guid: 297c5a60278e6d742b9285155f1b4f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomSpawners:
+  - {fileID: 8045621038145429616}
+  - {fileID: 8205811303317615197}
 --- !u!1 &6118137594141619592
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,7 +717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 1
   rand: 0
-  offset: {x: -3, y: 0, z: 0}
+  debugLinesEnabled: 0
 --- !u!61 &3578530382987674907
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -782,7 +812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 2
   rand: 0
-  offset: {x: -3, y: 0, z: 0}
+  debugLinesEnabled: 0
 --- !u!61 &3935024910193900628
 BoxCollider2D:
   m_ObjectHideFlags: 0

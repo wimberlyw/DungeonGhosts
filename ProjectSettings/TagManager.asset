@@ -7,6 +7,7 @@ TagManager:
   - Rooms
   - SpawnPoint
   - Wall
+  - RoomOverlord
   layers:
   - Default
   - TransparentFX

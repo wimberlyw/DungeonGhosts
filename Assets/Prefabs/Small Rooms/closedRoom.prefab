@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7197171837312291146}
   - component: {fileID: 5333344603341931567}
-  - component: {fileID: -4690543078363345895}
   m_Layer: 0
   m_Name: closedRoom
   m_TagString: Untagged
@@ -45,18 +44,6 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &-4690543078363345895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3838232674109177656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dd4be621faec304ea281cfc3dcea0db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4221306147648207370
 GameObject:
   m_ObjectHideFlags: 0

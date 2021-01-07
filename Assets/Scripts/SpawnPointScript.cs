@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomSpawner : MonoBehaviour
+public class SpawnPointScript : MonoBehaviour
 {
    [Tooltip(
         "1 - Attaches to BOTTOM door\n" +
@@ -12,55 +12,40 @@ public class RoomSpawner : MonoBehaviour
     public int openingDirection;
 
     public int rand;
-    public Vector3 offset = new Vector3(0, 0, 0);
-    public bool debugLinesEnabled = false;
 
+    private bool debugLinesEnabled;
     private bool spawned = false;
     private RoomTemplates templates;
     private GameObject spawnedRoom;
-    private RoomSpawnManager roomManager;
+    private OverlordScript roomManager;
     private Transform spawnedDoor;
     
 
     void Start()
     {
-        
-        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        //Invoke("Spawn", 0.1f);
 
-        
-        roomManager = GameObject.Find("RoomOverlord").GetComponent<RoomSpawnManager>();
-        roomManager.spawnerQueue.Enqueue(this);
-        
+        GameObject roomOverlord = GameObject.FindGameObjectWithTag("RoomOverlord");
+        templates = roomOverlord.GetComponent<RoomTemplates>(); 
+        roomManager = roomOverlord.GetComponent<OverlordScript>();
+
+        debugLinesEnabled = roomManager.useDebugLines;
 
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.transform.root != transform.root)
         {
-            if (other.CompareTag("Wall") || other.CompareTag("SpawnPoint"))
-            {
-                Destroy(gameObject);
-            }
-
             spawned = true;
             roomManager.readyToSpawn = true;
 
-
-            //if(other.GetComponent<RoomSpawner>().spawned ==false && spawned == false)
-            // {
-            //spawn blocked opening
-            //Instantiate(templates.closedroom, transform.position+offset, Quaternion.identity);
-            //Destroy(gameObject);
-            //}
+            Destroy(gameObject);
         }
-
     }
 
     public void Spawn()
     {
-        
+        this.enabled = (gameObject != null);
+
         if(spawned == false)
         {
             
@@ -71,7 +56,7 @@ public class RoomSpawner : MonoBehaviour
                 rand = Random.Range(0, templates.bottomRooms.Length);
                 spawnedRoom = Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
                 spawnedDoor = spawnedRoom.transform.Find("B_Door");
-                spawnedDoor.GetComponent<RoomSpawner>().spawned = true;
+                spawnedDoor.GetComponent<SpawnPointScript>().spawned = true;
                 spawnedRoom.transform.position = spawnedRoom.transform.position - spawnedDoor.localPosition;
 
             }
@@ -82,7 +67,7 @@ public class RoomSpawner : MonoBehaviour
                 spawnedRoom = Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
                 spawnedDoor = spawnedRoom.transform.Find("T_Door");
 
-                spawnedDoor.GetComponent<RoomSpawner>().spawned = true;
+                spawnedDoor.GetComponent<SpawnPointScript>().spawned = true;
                 spawnedRoom.transform.position = spawnedRoom.transform.position - spawnedDoor.localPosition;
             }
             else if (openingDirection == 3)
@@ -91,7 +76,7 @@ public class RoomSpawner : MonoBehaviour
                 rand = Random.Range(0, templates.leftRooms.Length);
                 spawnedRoom = Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
                 spawnedDoor = spawnedRoom.transform.Find("L_Door");
-                spawnedDoor.GetComponent<RoomSpawner>().spawned = true;
+                spawnedDoor.GetComponent<SpawnPointScript>().spawned = true;
                 spawnedRoom.transform.position = spawnedRoom.transform.position - spawnedDoor.localPosition;
 
             }
@@ -101,15 +86,14 @@ public class RoomSpawner : MonoBehaviour
                 rand = Random.Range(0, templates.rightRooms.Length);
                 spawnedRoom = Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
                 spawnedDoor = spawnedRoom.transform.Find("R_Door");
-                spawnedDoor.GetComponent<RoomSpawner>().spawned = true;
+                spawnedDoor.GetComponent<SpawnPointScript>().spawned = true;
                 spawnedRoom.transform.position = spawnedRoom.transform.position - spawnedDoor.localPosition;
-
             }
 
             // THIS IS FOR DEBUG ONLY -- REMOVE ME!
             if (debugLinesEnabled)
             {
-                if (gameObject.transform.root.GetComponent<LineRenderer>() == null)
+                if (gameObject.transform.root.GetComponent<LineRenderer>() != null)
                 {
                     LineRenderer lr = gameObject.transform.root.gameObject.AddComponent<LineRenderer>();
 
@@ -118,16 +102,9 @@ public class RoomSpawner : MonoBehaviour
                     lr.SetPosition(1, spawnedRoom.transform.position);
                 }
             }
-
-
         }
-        spawned = true;
         roomManager.readyToSpawn = true;
-
-        
-
+        Destroy(gameObject);
 
     }
-    
-
 }

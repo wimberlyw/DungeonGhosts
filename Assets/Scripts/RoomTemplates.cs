@@ -10,7 +10,7 @@ public class RoomTemplates : MonoBehaviour
     public GameObject[] rightRooms;
     public GameObject[] startingRooms;
     public GameObject closedroom;
-    private Vector3 spacing = new Vector3(3, 0, 0);
+    private Vector3 spacing = new Vector3(0, 0, 0);
 
     public List<GameObject> rooms;
 

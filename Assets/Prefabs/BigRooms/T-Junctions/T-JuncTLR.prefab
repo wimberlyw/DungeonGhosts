@@ -94,7 +94,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 1
   rand: 0
-  offset: {x: 0, y: 0, z: 0}
   debugLinesEnabled: 0
 --- !u!1 &3851584071743473495
 GameObject:
@@ -508,7 +507,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 4
   rand: 0
-  offset: {x: 0, y: 0, z: 0}
   debugLinesEnabled: 0
 --- !u!1 &4317606282766239721
 GameObject:
@@ -521,6 +519,7 @@ GameObject:
   - component: {fileID: 665821803069485902}
   - component: {fileID: 8998906385247211568}
   - component: {fileID: 6550898779213669874}
+  - component: {fileID: 5391983447714737330}
   m_Layer: 0
   m_Name: T-JuncTLR
   m_TagString: Untagged
@@ -587,6 +586,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 22, y: 14}
   m_EdgeRadius: 0
+--- !u!114 &5391983447714737330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317606282766239721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 297c5a60278e6d742b9285155f1b4f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomSpawners:
+  - {fileID: 1183439696611438030}
+  - {fileID: 4093545287372931225}
+  - {fileID: 7533737786812221067}
 --- !u!1 &4779700747341962221
 GameObject:
   m_ObjectHideFlags: 0
@@ -4470,5 +4485,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 3
   rand: 0
-  offset: {x: 0, y: 0, z: 0}
   debugLinesEnabled: 0

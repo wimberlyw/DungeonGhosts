@@ -94,7 +94,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 2
   rand: 0
-  offset: {x: 0, y: 0, z: 0}
   debugLinesEnabled: 1
 --- !u!1 &1949497573687321355
 GameObject:
@@ -5594,7 +5593,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 3
   rand: 0
-  offset: {x: 0, y: 0, z: 0}
   debugLinesEnabled: 1
 --- !u!1 &5636188805557953576
 GameObject:
@@ -7562,10 +7560,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9037221435704845886}
-  - component: {fileID: 2901211298196378061}
   - component: {fileID: 3474251315226043948}
   - component: {fileID: 7958261724590173351}
   - component: {fileID: 7059962505214190681}
+  - component: {fileID: 7562418837721760882}
   m_Layer: 0
   m_Name: Starting_1
   m_TagString: Untagged
@@ -7594,18 +7592,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2901211298196378061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5960660833317517215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dd4be621faec304ea281cfc3dcea0db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!156049354 &3474251315226043948
 Grid:
   m_ObjectHideFlags: 0
@@ -7956,6 +7942,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 22, y: 22}
   m_EdgeRadius: 0
+--- !u!114 &7562418837721760882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5960660833317517215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 297c5a60278e6d742b9285155f1b4f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomSpawners:
+  - {fileID: 648124280023845692}
+  - {fileID: 6620284914914234071}
+  - {fileID: 3479651185037380604}
 --- !u!1 &6004378644606588637
 GameObject:
   m_ObjectHideFlags: 0
@@ -8080,5 +8082,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 4
   rand: 0
-  offset: {x: 0, y: 0, z: 0}
   debugLinesEnabled: 1
