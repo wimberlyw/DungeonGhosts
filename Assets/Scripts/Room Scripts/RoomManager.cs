@@ -32,9 +32,10 @@ public class RoomManager : MonoBehaviour
                 
 
             //--- for each spawn we have in this room add it to the overlord to be spawned if possible
-            foreach (GameObject room in roomSpawners)
+            foreach (GameObject spawner in roomSpawners)
             {
-                GameObject.FindGameObjectWithTag("RoomOverlord").GetComponent<OverlordScript>().AddRoomToQueue(room.GetComponent<SpawnPointScript>());
+                if(spawner != null)
+                    GameObject.FindGameObjectWithTag("RoomOverlord").GetComponent<OverlordScript>().AddRoomToQueue(spawner.GetComponent<SpawnPointScript>());
 
             }
 
@@ -45,7 +46,7 @@ public class RoomManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         
-        if ((other.transform.root != gameObject.transform.root) && (other.tag != "SpawnPoint"))
+        if ((other.transform.root != gameObject.transform.root) && (other.tag != "SpawnPoint") && (other.tag != "Player"))
         {
             hasCollided = true;
             Debug.Log(gameObject.name + " has collided with " + other.gameObject.name);
