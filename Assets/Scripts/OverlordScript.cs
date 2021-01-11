@@ -12,11 +12,17 @@ public class OverlordScript : MonoBehaviour
     public bool readyToSpawn;
     public float spawnCount;
 
+    [HideInInspector]
     public bool useDebugLines = false;
+    public bool manualMapmaking = false;
+
     void Start()
     {
         readyToSpawn = true;
-        
+
+        //turn off auto scripts if in manual mode
+        this.enabled = gameObject.GetComponent<RoomTemplates>().enabled = !manualMapmaking;    
+
     }
 
     void Update()
