@@ -11,30 +11,18 @@ public class RoomManager : MonoBehaviour
       ---------------------------------*/
 
     public GameObject[] roomSpawners;
-    //bool hasCollided = false;
+    bool hasCollided = false;
     bool doOnce = true;
-    bool manualMapmaking;
 
     // Start is called before the first frame update
     void Start()
     {
-        manualMapmaking = GameObject.FindGameObjectWithTag("RoomOverlord").GetComponent<OverlordScript>().manualMapmaking;
-
-        if (manualMapmaking == true)
-        {
-            foreach (GameObject spawner in roomSpawners)
-            {
-                Destroy(spawner);
-            }
-        }
-
-        this.enabled = !manualMapmaking;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (doOnce == true)
         {
             doOnce = false;
@@ -57,6 +45,7 @@ public class RoomManager : MonoBehaviour
     //Runs before update so we can check if something is colliding first
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
         if ((other.transform.root != gameObject.transform.root) && (other.tag != "SpawnPoint") && (other.tag != "Player"))
         {
             hasCollided = true;
