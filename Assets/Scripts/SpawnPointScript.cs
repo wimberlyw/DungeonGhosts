@@ -36,15 +36,20 @@ public class SpawnPointScript : MonoBehaviour
         if (other.transform.root != transform.root)
         {
             spawned = true;
-            roomManager.readyToSpawn = true;
-
+            //roomManager.readyToSpawn = true;
+            //Debug.LogError("Deleted " + gameObject.name);
             Destroy(gameObject);
         }
     }
 
     public void Spawn()
     {
-        this.enabled = (gameObject != null);
+        if (gameObject == null)
+        {
+            roomManager.readyToSpawn = true;
+            return;
+        }
+        
 
         if(spawned == false)
         {

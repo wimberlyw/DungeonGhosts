@@ -94,7 +94,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 2
   rand: 0
-  debugLinesEnabled: 1
 --- !u!1 &1949497573687321355
 GameObject:
   m_ObjectHideFlags: 0
@@ -5593,7 +5592,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 3
   rand: 0
-  debugLinesEnabled: 1
 --- !u!1 &5636188805557953576
 GameObject:
   m_ObjectHideFlags: 0
@@ -7938,9 +7936,9 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 22, y: 22}
+  m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
 --- !u!114 &7562418837721760882
 MonoBehaviour:
@@ -8082,4 +8080,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 4
   rand: 0
-  debugLinesEnabled: 1

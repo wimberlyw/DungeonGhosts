@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
+
+    /*------------ PURPOSE ------------
+     * This script spawns rooms sequentially to keep the spawners from overloading.
+     * It keeps a queue of all the rooms to spawn by accepting each spawnpoint from recent spawned rooms.
+      ---------------------------------*/
+
     public GameObject[] roomSpawners;
-    bool isRoomOverlapping = false;
+    bool hasCollided = false;
     bool doOnce = true;
 
     // Start is called before the first frame update
@@ -21,34 +27,40 @@ public class RoomManager : MonoBehaviour
         {
             doOnce = false;
 
-            if (!isRoomOverlapping)
-            {
-                // --- Consalidated 'add room' to the room overlord
-                GameObject.FindGameObjectWithTag("RoomOverlord").GetComponent<RoomTemplates>().rooms.Add(gameObject);
+            // --- Consalidated 'add room' to the room overlord
+            GameObject.FindGameObjectWithTag("RoomOverlord").GetComponent<RoomTemplates>().rooms.Add(gameObject);
                 
 
-                //--- for each spawn we have in this room add it to the overlord to be spawned if possible
-                foreach (GameObject room in roomSpawners)
-                {
-                    GameObject.FindGameObjectWithTag("RoomOverlord").GetComponent<OverlordScript>().AddRoomToQueue(room.GetComponent<SpawnPointScript>());
-
-                }
-            }
-            else
+            //--- for each spawn we have in this room add it to the overlord to be spawned if possible
+            foreach (GameObject room in roomSpawners)
             {
-                
-                Destroy(gameObject); //destroy the object if its colliding with something
+                GameObject.FindGameObjectWithTag("RoomOverlord").GetComponent<OverlordScript>().AddRoomToQueue(room.GetComponent<SpawnPointScript>());
+
             }
+
         }
     }
 
     //Runs before update so we can check if something is colliding first
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.transform.root != gameObject.transform.root)
+        
+        if ((other.transform.root != gameObject.transform.root) && (other.tag != "SpawnPoint"))
         {
+            hasCollided = true;
             Debug.Log(gameObject.name + " has collided with " + other.gameObject.name);
-            isRoomOverlapping = true;
+            CollisionCheck(); 
+            // WORKING ON CHECKING COLLISION DURING ROOM CHECK
+        }
+    }
+
+    public void CollisionCheck()
+    {
+        Debug.Log(doOnce);
+        if (doOnce == true)
+        {
+            Destroy(gameObject);
         }
     }
 }
+
