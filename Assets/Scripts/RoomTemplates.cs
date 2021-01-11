@@ -22,11 +22,18 @@ public class RoomTemplates : MonoBehaviour
     {
         if(waitTime<=0 && spawnedBoss ==false)
         {
-            Instantiate(boss, rooms[rooms.Count - 1].transform.position , Quaternion.identity);
+            int i = 1;
+            //while(rooms[rooms.Count - i] == null) { i++; }
+
+            // new concept: when overlord spawnCount = 0, roomcount / 2 + (rand( 0 , roomcount/2)
+            //this will get the middle spawned room and add some random number to it.
+
+            //Instantiate(boss, rooms[rooms.Count - i].transform.position , Quaternion.identity);
             spawnedBoss= true;
+            
 
         }
-        else
+        else if(waitTime > 0)
         {
             waitTime -= Time.deltaTime;
         }

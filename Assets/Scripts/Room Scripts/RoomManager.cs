@@ -11,22 +11,32 @@ public class RoomManager : MonoBehaviour
       ---------------------------------*/
 
     public GameObject[] roomSpawners;
-    bool hasCollided = false;
     bool doOnce = true;
+    bool manualMapmaking;
+
+    public float instantiateTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        manualMapmaking = GameObject.FindGameObjectWithTag("RoomOverlord").GetComponent<OverlordScript>().manualMapmaking;
+        instantiateTime = Time.timeSinceLevelLoad;
+
+        if (manualMapmaking == true)
+        {
+            foreach (GameObject spawner in roomSpawners)
+                Destroy(spawner);
+        }
+
+        this.enabled = !manualMapmaking;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameObject == null) return;
         if (doOnce == true)
-        {
-            doOnce = false;
-
+        {          
             // --- Consalidated 'add room' to the room overlord
             GameObject.FindGameObjectWithTag("RoomOverlord").GetComponent<RoomTemplates>().rooms.Add(gameObject);
                 
@@ -39,29 +49,34 @@ public class RoomManager : MonoBehaviour
 
             }
 
+            doOnce = false; //only let this function run once
         }
     }
 
-    //Runs before update so we can check if something is colliding first
+    //Runs before update so we can check if something is colliding and delete the youngest of the 2 rooms
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
-        if ((other.transform.root != gameObject.transform.root) && (other.tag != "SpawnPoint") && (other.tag != "Player"))
+
+        if ((other.transform.root != gameObject.transform.root) && (other.transform.root.tag == "Rooms"))
         {
-            hasCollided = true;
-            Debug.Log(gameObject.name + " has collided with " + other.gameObject.name);
-            CollisionCheck(); 
+            float otherAge = other.transform.root.GetComponent<RoomManager>().GetRoomAge();
+
+            //Debug.Log(gameObject.name + " (age: " + (int)GetRoomAge() + ") has collided with " + other.transform.root.name + " (age: " + (int)otherAge + ")");
+            
+            if(GetRoomAge() < otherAge)
+            {
+                Destroy(gameObject);
+            }
+
             // WORKING ON CHECKING COLLISION DURING ROOM CHECK
         }
     }
 
-    public void CollisionCheck()
+    //Gets the age of the current room since the scene was loaded
+    public float GetRoomAge()
     {
-        Debug.Log(doOnce);
-        if (doOnce == true)
-        {
-            Destroy(gameObject);
-        }
+        return Time.timeSinceLevelLoad - instantiateTime;
     }
+
 }
 

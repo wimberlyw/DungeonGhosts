@@ -9,18 +9,28 @@ public class OverlordScript : MonoBehaviour
     public float spawnDelay = 0.02f;
 
     private float timer = 0;
+    [HideInInspector]
     public bool readyToSpawn;
-    public float spawnCount;
+    
+    [SerializeField]
+    float spawnCount;
 
+    [HideInInspector]
     public bool useDebugLines = false;
+    public bool manualMapmaking = false;
+
     void Start()
     {
         readyToSpawn = true;
-        
+
+        //turn off auto scripts if in manual mode
+        this.enabled = gameObject.GetComponent<RoomTemplates>().enabled = !manualMapmaking;    
+
     }
 
     void Update()
     {
+        spawnCount = spawnerQueue.Count;
         if(spawnerQueue.Count > 0 && readyToSpawn)
         {
             timer += Time.deltaTime;
