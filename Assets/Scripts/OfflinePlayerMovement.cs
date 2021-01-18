@@ -12,6 +12,7 @@ public class OfflinePlayerMovement : MonoBehaviour
     //public Camera theCamera;
     Vector3 ScaleToFlip = new Vector3(0, 0, 0);
     public bool facingLeft = false;
+    public Transform theFlashlight;
 
     void Start()
     {
@@ -36,16 +37,17 @@ public class OfflinePlayerMovement : MonoBehaviour
     {
         //moves
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-        //Flip();
+        Flip();
 
     }
 
-   /* void Flip()
+   void Flip()
     {
         if ((movement.x > 0 && facingLeft) || (movement.x < 0 && !facingLeft))
         {
             facingLeft = !facingLeft;
-            transform.Rotate(new Vector3(0, 180, 0));
+            theFlashlight.Rotate(new Vector3(180, 0, 180));
         }
-    }*/
+       
+    }
 }
