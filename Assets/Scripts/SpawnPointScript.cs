@@ -53,46 +53,64 @@ public class SpawnPointScript : MonoBehaviour
 
         if(spawned == false)
         {
-            
+
             if (openingDirection == 1)
             {
-
-                //need to spawn room with BOTTOM door
-                rand = Random.Range(0, templates.bottomRooms.Length);
-                spawnedRoom = Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
-                spawnedDoor = spawnedRoom.transform.Find("B_Door");
-                spawnedDoor.GetComponent<SpawnPointScript>().spawned = true;
-                spawnedRoom.transform.position = spawnedRoom.transform.position - spawnedDoor.localPosition;
-
+                if (templates.bottomRooms[rand] != null)
+                {
+                    //need to spawn room with BOTTOM door
+                    rand = Random.Range(0, templates.bottomRooms.Length);
+                    spawnedRoom = Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
+                    spawnedDoor = spawnedRoom.transform.Find("B_Door");
+                    spawnedDoor.GetComponent<SpawnPointScript>().spawned = true;
+                    spawnedRoom.transform.position = spawnedRoom.transform.position - spawnedDoor.localPosition;
+                }
+                else
+                    Debug.LogError("There are no rooms in the BOTTOM list!");
             }
             else if (openingDirection == 2)
             {
-                //spawn room with a TOP door
-                rand = Random.Range(0, templates.topRooms.Length);
-                spawnedRoom = Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
-                spawnedDoor = spawnedRoom.transform.Find("T_Door");
+                if (templates.topRooms[rand] != null)
+                {
+                    //spawn room with a TOP door
+                    rand = Random.Range(0, templates.topRooms.Length);
+                    spawnedRoom = Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
+                    spawnedDoor = spawnedRoom.transform.Find("T_Door");
 
-                spawnedDoor.GetComponent<SpawnPointScript>().spawned = true;
-                spawnedRoom.transform.position = spawnedRoom.transform.position - spawnedDoor.localPosition;
+                    spawnedDoor.GetComponent<SpawnPointScript>().spawned = true;
+                    spawnedRoom.transform.position = spawnedRoom.transform.position - spawnedDoor.localPosition;
+                }
+                else
+                    Debug.LogError("There are no rooms in the TOP list!");
             }
             else if (openingDirection == 3)
             {
-                //spawn room with a LEFT door
-                rand = Random.Range(0, templates.leftRooms.Length);
-                spawnedRoom = Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
-                spawnedDoor = spawnedRoom.transform.Find("L_Door");
-                spawnedDoor.GetComponent<SpawnPointScript>().spawned = true;
-                spawnedRoom.transform.position = spawnedRoom.transform.position - spawnedDoor.localPosition;
+                if (templates.leftRooms[rand] != null)
+                {
+                    //spawn room with a LEFT door
+                    rand = Random.Range(0, templates.leftRooms.Length);
+                    spawnedRoom = Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
+                    spawnedDoor = spawnedRoom.transform.Find("L_Door");
+                    spawnedDoor.GetComponent<SpawnPointScript>().spawned = true;
+                    spawnedRoom.transform.position = spawnedRoom.transform.position - spawnedDoor.localPosition;
+                }
+                else
+                    Debug.LogError("There are no rooms in the LEFT list!");
 
             }
             else if (openingDirection == 4)
             {
-                //spawn room with a RIGHT door
-                rand = Random.Range(0, templates.rightRooms.Length);
-                spawnedRoom = Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
-                spawnedDoor = spawnedRoom.transform.Find("R_Door");
-                spawnedDoor.GetComponent<SpawnPointScript>().spawned = true;
-                spawnedRoom.transform.position = spawnedRoom.transform.position - spawnedDoor.localPosition;
+                if (templates.rightRooms[rand] != null)
+                {
+                    //spawn room with a RIGHT door
+                    rand = Random.Range(0, templates.rightRooms.Length);
+                    spawnedRoom = Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
+                    spawnedDoor = spawnedRoom.transform.Find("R_Door");
+                    spawnedDoor.GetComponent<SpawnPointScript>().spawned = true;
+                    spawnedRoom.transform.position = spawnedRoom.transform.position - spawnedDoor.localPosition;
+                }
+                else
+                    Debug.LogError("There are no rooms in the RIGHT list!");
             }
 
             // THIS IS FOR DEBUG ONLY -- REMOVE ME!

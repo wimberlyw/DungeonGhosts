@@ -16,7 +16,6 @@ public class RoomManager : MonoBehaviour
 
     public float instantiateTime;
 
-    // Start is called before the first frame update
     void Start()
     {
         manualMapmaking = GameObject.FindGameObjectWithTag("RoomOverlord").GetComponent<OverlordScript>().manualMapmaking;
@@ -31,7 +30,6 @@ public class RoomManager : MonoBehaviour
         this.enabled = !manualMapmaking;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (gameObject == null) return;
@@ -46,7 +44,6 @@ public class RoomManager : MonoBehaviour
             {
                 if(spawner != null)
                     GameObject.FindGameObjectWithTag("RoomOverlord").GetComponent<OverlordScript>().AddRoomToQueue(spawner.GetComponent<SpawnPointScript>());
-
             }
 
             doOnce = false; //only let this function run once
@@ -61,13 +58,11 @@ public class RoomManager : MonoBehaviour
         {
             float otherAge = other.transform.root.GetComponent<RoomManager>().GetRoomAge();
 
-            //Debug.Log(gameObject.name + " (age: " + (int)GetRoomAge() + ") has collided with " + other.transform.root.name + " (age: " + (int)otherAge + ")");
-            
+            //Debug.Log(gameObject.name + " (age: " + (int)GetRoomAge() + ") has collided with " + other.transform.root.name + " (age: " + (int)otherAge + ")");       
             if(GetRoomAge() < otherAge)
             {
                 Destroy(gameObject);
             }
-
             // WORKING ON CHECKING COLLISION DURING ROOM CHECK
         }
     }

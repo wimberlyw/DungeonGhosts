@@ -22,7 +22,7 @@ public class RoomTemplates : MonoBehaviour
     {
         if(waitTime<=0 && spawnedBoss ==false)
         {
-            int i = 1;
+            //int i = 1;
             //while(rooms[rooms.Count - i] == null) { i++; }
 
             // new concept: when overlord spawnCount = 0, roomcount / 2 + (rand( 0 , roomcount/2)
